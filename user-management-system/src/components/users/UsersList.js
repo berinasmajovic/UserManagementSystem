@@ -1,35 +1,20 @@
 import React, { useEffect } from "react";
-import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, loadUsers } from "../redux/actions";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import TablePagination from "@mui/material/TablePagination";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const UsersList = ({ users, handleDelete }) => {
+const UsersList = (props) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
-    console.log("uslii");
     setPage(newPage);
   };
 
@@ -38,7 +23,8 @@ const UsersList = ({ users, handleDelete }) => {
     setPage(0);
   };
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage);
+    rowsPerPage -
+    Math.min(rowsPerPage, props.users.length - page * rowsPerPage);
 
   return (
     <TableContainer component={Paper}>
@@ -53,15 +39,17 @@ const UsersList = ({ users, handleDelete }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users &&
-            users
+          {props.users &&
+            props.users
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((user, index) => (
                 <TableRow key={user.id}>
                   <TableCell component="th" scope="row">
                     {user.firstname}
                   </TableCell>
-                  <TableCell align="right">{user.lastname}</TableCell>
+                  <TableCell align="right" name="lastname">
+                    {user.lastname}
+                  </TableCell>
                   <TableCell align="right">{user.email}</TableCell>
                   <TableCell align="right">{user.status}</TableCell>
                   <TableCell align="right">
@@ -69,12 +57,25 @@ const UsersList = ({ users, handleDelete }) => {
                       variant="outlined"
                       aria-label="outlined button group"
                     >
-                      <Button color="primary">Edit</Button>
+                      <Button
+                        color="primary"
+                        onClick={() => props.navigate(`/editUser/${user.id}`)}
+                      >
+                        Edit
+                      </Button>
                       <Button
                         color="error"
-                        onClick={() => handleDelete(user.id)}
+                        onClick={() => props.handleDelete(user.id)}
                       >
                         Delete
+                      </Button>
+                      <Button
+                        color="secondary"
+                        onClick={() =>
+                          props.navigate(`/assignPermission/${user.id}`)
+                        }
+                      >
+                        Assign
                       </Button>
                     </ButtonGroup>
                   </TableCell>
@@ -90,7 +91,7 @@ const UsersList = ({ users, handleDelete }) => {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={users.length}
+        count={props.users.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

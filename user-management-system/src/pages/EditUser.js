@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addUser } from "../redux/actions";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, updateUser } from "../redux/actions";
 import AddUserForm from "../components/users/AddUserForm";
 
-const AddUser = () => {
+const EditUser = () => {
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
@@ -12,7 +12,19 @@ const AddUser = () => {
     status: "",
   });
   const [error, setError] = useState("");
+  let { id } = useParams();
+  const { user } = useSelector((state) => state.data);
   const { firstname, lastname, email, status } = state;
+
+  useEffect(() => {
+    dispatch(getUser(id));
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      setState({ ...user });
+    }
+  }, [user]);
 
   let navigate = useNavigate();
   let dispatch = useDispatch();
@@ -27,7 +39,7 @@ const AddUser = () => {
     if (!firstname || !lastname || !email || !status) {
       setError("Please input all fields");
     } else {
-      dispatch(addUser(state));
+      dispatch(updateUser(state, id));
       navigate("/");
       setError("");
     }
@@ -44,4 +56,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;

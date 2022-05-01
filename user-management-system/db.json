@@ -1,81 +1,34 @@
 {
   "user": [
     {
-      "id": 2,
+      "id": 9,
       "firstname": "Jandfdfdfe",
       "lastname": "Smith",
       "email": "jane@gmail.com",
-      "status": "available"
+      "status": "available",
+      "permissions": [
+        {
+          "id": "ed3b8996cc9af",
+          "code": "DELETE-USER",
+          "description": "permisija za brisanje drugih korisnika"
+        }
+      ]
     },
     {
-        "id": 3,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 4,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 5,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 6,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 7,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 8,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 9,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 10,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 12,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      },
-      {
-        "id": 13,
-        "firstname": "Jandfdfdfe",
-        "lastname": "Smith",
-        "email": "jane@gmail.com",
-        "status": "available"
-      }
+      "id": 10,
+      "firstname": "Jandfdfdfe",
+      "lastname": "Smith",
+      "email": "jane@gmail.com",
+      "status": "available",
+      "permissions": []
+    },
+    {
+      "firstname": "salem",
+      "lastname": "suljkanovic",
+      "email": "ss@gmail.com",
+      "status": "invalidgtfrc",
+      "id": 11,
+      "permissions": []
+    }
   ]
 }

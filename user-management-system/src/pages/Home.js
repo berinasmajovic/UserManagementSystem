@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, loadUsers } from "../redux/actions";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import UsersList from "../components/UsersList";
+import UsersList from "../components/users/UsersList";
 
 const Home = () => {
   let dispatch = useDispatch();
@@ -27,7 +27,11 @@ const Home = () => {
       <Button variant="contained" onClick={() => navigate("/addUser")}>
         Add user
       </Button>
-      <UsersList users={users} handleDelete={handleDelete} />
+      <UsersList
+        users={users}
+        handleDelete={handleDelete}
+        navigate={navigate}
+      />
     </div>
   );
 };
