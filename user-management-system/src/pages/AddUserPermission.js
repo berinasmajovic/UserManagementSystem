@@ -37,18 +37,25 @@ const AddUserPermission = () => {
     if (!description || !code) {
       setError("Please input all fields");
     } else {
-      var newPermissionList = [
-        ...(user.permissions || []),
-        { id: Math.random().toString(16).slice(2), code, description },
-      ];
-      dispatch(updateUser({ ...user, permissions: newPermissionList }, id));
-      navigate(`/assignPermission/${id}`);
-      setError("");
+      user.permissions.map((permission) => {
+        if (permission.code === code) {
+          setError("Permission already exists!");
+        } else {
+          var newPermissionList = [
+            ...(user.permissions || []),
+            { id: Math.random().toString(16).slice(2), code, description },
+          ];
+          dispatch(updateUser({ ...user, permissions: newPermissionList }, id));
+          navigate(`/assignPermission/${id}`);
+          setError("");
+        }
+      });
     }
   };
 
   return (
     <div>
+      <h2>Add User permission</h2>
       <AddUserPermissionForm
         permission={{ code, description }}
         handleInputChange={handleInputChange}

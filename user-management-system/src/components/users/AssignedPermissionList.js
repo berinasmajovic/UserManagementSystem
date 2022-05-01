@@ -19,22 +19,27 @@ const AssignedPermissionsList = (props) => {
       >
         <TableHead>
           <TableRow>
-            <TableCell>Code</TableCell>
-            <TableCell align="right">Description</TableCell>
-            <TableCell align="right">Action</TableCell>
+            <TableCell align="center">Code</TableCell>
+            <TableCell align="center">Description</TableCell>
+            <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.user.permissions &&
             props.user.permissions.map((permission, index) => (
               <TableRow key={permission.code}>
-                <TableCell component="th" scope="row" name="code">
+                <TableCell
+                  align="center"
+                  component="th"
+                  scope="row"
+                  name="code"
+                >
                   {permission.code}
                 </TableCell>
-                <TableCell align="right" name="decription">
+                <TableCell align="center" name="decription">
                   {permission.description}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   <ButtonGroup
                     variant="outlined"
                     aria-label="outlined button group"

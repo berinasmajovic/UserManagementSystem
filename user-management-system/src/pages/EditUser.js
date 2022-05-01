@@ -2,19 +2,21 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, updateUser } from "../redux/actions";
-import AddUserForm from "../components/users/AddUserForm";
+import EditUserForm from "../components/users/EditUserForm";
 
 const EditUser = () => {
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
+    username: "",
+    password: "",
     email: "",
     status: "",
   });
   const [error, setError] = useState("");
   let { id } = useParams();
   const { user } = useSelector((state) => state.data);
-  const { firstname, lastname, email, status } = state;
+  const { firstname, lastname, username, password, email, status } = state;
 
   useEffect(() => {
     dispatch(getUser(id));
@@ -47,8 +49,9 @@ const EditUser = () => {
 
   return (
     <div>
-      <AddUserForm
-        user={{ firstname, lastname, email, status }}
+      <h2>Edit user</h2>
+      <EditUserForm
+        user={{ firstname, lastname, username, password, email, status }}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
       />

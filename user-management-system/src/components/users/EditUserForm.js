@@ -19,7 +19,7 @@ function Item(props) {
   );
 }
 
-const AddUserForm = (props) => {
+const EditUserForm = (props) => {
   return (
     <div>
       <form
@@ -66,7 +66,9 @@ const AddUserForm = (props) => {
               label="Username"
               value={props.user.username || ""}
               type="text"
-              onChange={props.handleInputChange}
+              inputProps={
+                { readOnly: true, }
+            }
             />
           </Item>
           <Item>
@@ -76,7 +78,9 @@ const AddUserForm = (props) => {
               label="Password"
               value={props.user.password || ""}
               type="password"
-              onChange={props.handleInputChange}
+              inputProps={
+                { readOnly: true, }
+            }
             />
           </Item>
           <Item>
@@ -90,7 +94,8 @@ const AddUserForm = (props) => {
             />
           </Item>
           <Item>
-            <label>Status: </label>
+            {" "}
+            <label>Status: </label>{" "}
             <Select
               name="status"
               value={props.user.status || "ACTIVE"}
@@ -122,4 +127,4 @@ const AddUserForm = (props) => {
   );
 };
 
-export default AddUserForm;
+export default EditUserForm;

@@ -45,6 +45,7 @@ const AssignPermission = () => {
       <Button
         variant="contained"
         onClick={() => navigate(`/assignPermission/${id}/addPermission`)}
+        style={{float: "right"}}
       >
         Add permission
       </Button>

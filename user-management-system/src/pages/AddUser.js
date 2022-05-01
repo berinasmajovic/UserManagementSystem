@@ -4,15 +4,19 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions";
 import AddUserForm from "../components/users/AddUserForm";
 
+const jsSHA = require("jssha");
+
 const AddUser = () => {
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
+    username: "",
+    password: "",
     email: "",
     status: "",
   });
   const [error, setError] = useState("");
-  const { firstname, lastname, email, status } = state;
+  const { firstname, lastname, username, password, email, status } = state;
 
   let navigate = useNavigate();
   let dispatch = useDispatch();
@@ -24,10 +28,13 @@ const AddUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!firstname || !lastname || !email || !status) {
+    if (!firstname || !lastname || !email || !username || !password) {
       setError("Please input all fields");
     } else {
-      dispatch(addUser(state));
+      var hashObj = new jsSHA("SHA-512", "TEXT", { numRounds: 1 });
+      hashObj.update(password);
+      var hash = hashObj.getHash("HEX");
+      dispatch(addUser({ ...state, password: hash }));
       navigate("/");
       setError("");
     }
@@ -36,7 +43,7 @@ const AddUser = () => {
   return (
     <div>
       <AddUserForm
-        user={{ firstname, lastname, email, status }}
+        user={{ firstname, lastname, username, password, email, status }}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
       />

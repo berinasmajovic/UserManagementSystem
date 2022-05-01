@@ -1,34 +1,128 @@
 {
   "user": [
     {
-      "id": 9,
-      "firstname": "Jandfdfdfe",
-      "lastname": "Smith",
-      "email": "jane@gmail.com",
-      "status": "available",
+      "firstname": "Alice",
+      "lastname": "Lencker",
+      "username": "alenckerr",
+      "email": "alenker@gmail.com",
+      "status": "INACTIVE",
+      "id": 11,
       "permissions": [
         {
-          "id": "ed3b8996cc9af",
+          "id": "639a0c1ac97ad",
           "code": "DELETE-USER",
-          "description": "permisija za brisanje drugih korisnika"
+          "description": "With this permission user can delete another user."
         }
       ]
     },
     {
-      "id": 10,
-      "firstname": "Jandfdfdfe",
-      "lastname": "Smith",
-      "email": "jane@gmail.com",
-      "status": "available",
-      "permissions": []
+      "firstname": "Frank",
+      "lastname": "Rot",
+      "email": "frot@gmail.com",
+      "status": "ACTIVE",
+      "id": 12
     },
     {
-      "firstname": "salem",
-      "lastname": "suljkanovic",
-      "email": "ss@gmail.com",
-      "status": "invalidgtfrc",
-      "id": 11,
-      "permissions": []
+      "firstname": "Emilie",
+      "lastname": "Smith",
+      "email": "esmith@gmail.com",
+      "status": "ACTIVE",
+      "id": 13
+    },
+    {
+      "firstname": "Lisa",
+      "lastname": "Melker",
+      "email": "lmelker@gmail.com",
+      "status": "INACTIVE",
+      "id": 14
+    },
+    {
+      "firstname": "Marley",
+      "lastname": "Johnson",
+      "email": "mjohnson@gmail.com",
+      "status": "ACTIVE",
+      "id": 15
+    },
+    {
+      "firstname": "Elly",
+      "lastname": "Meglay",
+      "email": "emeglay@gmail.com",
+      "status": "ACTIVE",
+      "id": 16
+    },
+    {
+      "firstname": "Sarah",
+      "lastname": "Vally",
+      "email": "svally@gmail.com",
+      "status": "ACTIVE",
+      "id": 17
+    },
+    {
+      "firstname": "Michael",
+      "lastname": "Cury",
+      "email": "mcury@gmail.com",
+      "status": "ACTIVE",
+      "id": 18
+    },
+    {
+      "firstname": "Rey",
+      "lastname": "Reynold",
+      "email": "rreynold@gmail.com",
+      "status": "INACTIVE",
+      "id": 19
+    },
+    {
+      "firstname": "Freddy",
+      "lastname": "Marly",
+      "email": "fmarly@gmail.com",
+      "status": "ACTIVE",
+      "id": 20
+    },
+    {
+      "firstname": "Sammy",
+      "lastname": "Sunny",
+      "email": "ssunny@gmail.com",
+      "status": "ACTIVE",
+      "id": 21
+    },
+    {
+      "firstname": "sddd",
+      "lastname": "dfdfd",
+      "username": "dfdfdf",
+      "password": "73af9a2e74aefa1c2435a5fd1fdc8d9d9b8de81789c6f4dfa31f08e20a87feb99038fb8796ec15ea1f16872c7788d292cf54e8cce994535de95674d9cf59e907",
+      "email": "dffff",
+      "status": "",
+      "id": 22
+    },
+    {
+      "firstname": "ggfgf",
+      "lastname": "gfhghhg",
+      "username": "ghhgfg",
+      "password": "b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86",
+      "email": "fgfgfgfgf",
+      "status": "",
+      "id": 23
+    },
+    {
+      "firstname": "test",
+      "lastname": "tttt",
+      "username": "ttt",
+      "password": "9e863bf17b1a33d8035dc26d47d57ce89aea4a23ee061c78510d7903be40beca30d34c254ecdf10139e96b039f25b63dbd0146fae747517bc82f56182c17cdf7",
+      "email": "tttt",
+      "status": "INACTIVE",
+      "id": 24,
+      "permissions": [
+        {
+          "id": "161348e7b7825",
+          "code": "DELETE-USER",
+          "description": "gbfbgbg"
+        },
+        {
+          "id": "343172c4f13bf",
+          "code": "CREATE-USER",
+          "description": "fggfgf"
+        }
+      ]
     }
   ]
 }
