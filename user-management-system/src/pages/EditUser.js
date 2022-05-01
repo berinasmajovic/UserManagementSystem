@@ -39,7 +39,7 @@ const EditUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!firstname || !lastname || !email || !status) {
-      setError("Please input all fields");
+      setError("Please input all fields!");
     } else {
       dispatch(updateUser(state, id));
       navigate("/");
@@ -54,6 +54,7 @@ const EditUser = () => {
         user={{ firstname, lastname, username, password, email, status }}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
+        error={error}
       />
     </div>
   );

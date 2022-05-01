@@ -28,7 +28,7 @@ const EditUserForm = (props) => {
         style={{ marginTop: 20 }}
         onSubmit={props.handleSubmit}
       >
-        {props.error && <h3 style={{ color: "red" }}>{props.error}</h3>}
+        {props.error && <h4 style={{ color: "red" }}>{props.error}</h4>}
         <Box
           sx={{
             alignItems: "center",
@@ -66,9 +66,7 @@ const EditUserForm = (props) => {
               label="Username"
               value={props.user.username || ""}
               type="text"
-              inputProps={
-                { readOnly: true, }
-            }
+              inputProps={{ readOnly: true }}
             />
           </Item>
           <Item>
@@ -78,9 +76,7 @@ const EditUserForm = (props) => {
               label="Password"
               value={props.user.password || ""}
               type="password"
-              inputProps={
-                { readOnly: true, }
-            }
+              inputProps={{ readOnly: true }}
             />
           </Item>
           <Item>
@@ -109,7 +105,6 @@ const EditUserForm = (props) => {
                 INACTIVE
               </MenuItem>
             </Select>
-            
           </Item>
           <Item>
             <Button

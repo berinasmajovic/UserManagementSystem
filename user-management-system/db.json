@@ -12,6 +12,16 @@
           "id": "639a0c1ac97ad",
           "code": "DELETE-USER",
           "description": "With this permission user can delete another user."
+        },
+        {
+          "id": "6622486b654d1",
+          "code": "EDIT-USER",
+          "description": "ccdfffg"
+        },
+        {
+          "id": "34f5533819ab5",
+          "code": "CREATE-USER",
+          "description": "gfhf"
         }
       ]
     },
@@ -123,6 +133,15 @@
           "description": "fggfgf"
         }
       ]
+    },
+    {
+      "firstname": "ttztz",
+      "lastname": "tztz",
+      "username": "tztzzt",
+      "password": "ec6ec56c7264ac8b84aeeed0f81c0ca1e57faa3dca72e964f099d7477e650a72eaafec0f910cf78d55e6e8b783c5797a6225b9eebff0e40169a62d00b5e1eabc",
+      "email": "gggfgfgf",
+      "status": "",
+      "id": 25
     }
   ]
 }

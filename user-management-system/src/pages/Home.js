@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div>
-      <Button variant="contained" style={{float: "right"}} onClick={() => navigate("/addUser")}>
+      <Button variant="contained" style={{float: "right", margin: 20}} onClick={() => navigate("/addUser")}>
         Add user
       </Button>
       <UsersList

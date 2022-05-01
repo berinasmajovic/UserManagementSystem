@@ -28,7 +28,7 @@ const AddUserForm = (props) => {
         style={{ marginTop: 20 }}
         onSubmit={props.handleSubmit}
       >
-        {props.error && <h3 style={{ color: "red" }}>{props.error}</h3>}
+        {props.error && <h4 style={{ color: "red" }}>{props.error}</h4>}
         <Box
           sx={{
             alignItems: "center",
@@ -104,7 +104,6 @@ const AddUserForm = (props) => {
                 INACTIVE
               </MenuItem>
             </Select>
-            
           </Item>
           <Item>
             <Button
@@ -114,6 +113,13 @@ const AddUserForm = (props) => {
               onClick={props.handleSubmit}
             >
               Submit
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() => props.navigate(`/`)}
+              style={{ margin: 20 }}
+            >
+              Cancel
             </Button>
           </Item>
         </Box>

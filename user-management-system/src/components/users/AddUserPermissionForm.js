@@ -22,7 +22,7 @@ function Item(props) {
 const AddUserPermissionForm = (props) => {
   return (
     <div>
-      {props.error && <h3 style={{ color: "red" }}>{props.error}</h3>}
+      {props.error && <h4 style={{ color: "red" }}>{props.error}</h4>}
       <form
         noValidate
         autoComplete="off"
@@ -30,7 +30,7 @@ const AddUserPermissionForm = (props) => {
         onSubmit={props.handleSubmit}
       >
         <Item>
-          <label>Code: </label>{" "}
+          <label>Code: </label>
           <Select
             name="code"
             value={props.permission.code}
@@ -57,6 +57,8 @@ const AddUserPermissionForm = (props) => {
             onChange={props.handleInputChange}
           />
         </Item>
+        <Item>
+        </Item>
         <Button
           variant="contained"
           type="submit"
@@ -65,6 +67,13 @@ const AddUserPermissionForm = (props) => {
         >
           Submit
         </Button>
+        <Button
+              variant="contained"
+              onClick={() => props.navigate("/")}
+              style={{ margin: 20 }}
+            >
+              Cancel
+            </Button>
       </form>
     </div>
   );

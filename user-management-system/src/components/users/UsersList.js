@@ -9,21 +9,13 @@ import Paper from "@mui/material/Paper";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import TablePagination from "@mui/material/TablePagination";
-import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import DeleteIcon from "@mui/icons-material/Delete";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
-import { alpha } from "@mui/material/styles";
 import { getComparator } from "../../helpers/Comparator";
+
 
 const headCells = [
   {
@@ -107,9 +99,11 @@ EnhancedTableHead.propTypes = {
 
 const UsersList = (props) => {
   const [page, setPage] = React.useState(0);
+  const [rows, setRows] = React.useState(props.users);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -129,6 +123,7 @@ const UsersList = (props) => {
   const emptyRows =
     rowsPerPage -
     Math.min(rowsPerPage, props.users.length - page * rowsPerPage);
+
 
   return (
     <div>

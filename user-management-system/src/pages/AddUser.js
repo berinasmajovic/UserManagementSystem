@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions";
 import AddUserForm from "../components/users/AddUserForm";
+import Button from "@mui/material/Button";
 
 const jsSHA = require("jssha");
 
@@ -42,10 +43,13 @@ const AddUser = () => {
 
   return (
     <div>
+      <h2>Add new user</h2>
       <AddUserForm
         user={{ firstname, lastname, username, password, email, status }}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
+        error={error}
+        navigate={navigate}
       />
     </div>
   );

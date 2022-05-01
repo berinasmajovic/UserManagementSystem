@@ -4,8 +4,6 @@ import { makeStyles } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../redux/actions";
-import AddUserForm from "../components/users/AddUserForm";
 import AddUserPermissionForm from "../components/users/AddUserPermissionForm";
 import { updateUser, getUser } from "../redux/actions";
 
@@ -37,19 +35,21 @@ const AddUserPermission = () => {
     if (!description || !code) {
       setError("Please input all fields");
     } else {
-      user.permissions.map((permission) => {
-        if (permission.code === code) {
-          setError("Permission already exists!");
-        } else {
-          var newPermissionList = [
-            ...(user.permissions || []),
-            { id: Math.random().toString(16).slice(2), code, description },
-          ];
-          dispatch(updateUser({ ...user, permissions: newPermissionList }, id));
-          navigate(`/assignPermission/${id}`);
-          setError("");
-        }
-      });
+      var codeExists = user.permissions.some(
+        (element) => element.code === code
+      );
+      if (codeExists) {
+        setError("Permission already exists!");
+      }
+      else {
+        var newPermissionList = [
+          ...(user.permissions || []),
+          { id: Math.random().toString(16).slice(2), code, description },
+        ];
+        dispatch(updateUser({ ...user, permissions: newPermissionList }, id));
+        navigate(`/assignPermission/${id}`);
+        setError("");
+      }
     }
   };
 
@@ -60,6 +60,8 @@ const AddUserPermission = () => {
         permission={{ code, description }}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
+        error={error}
+        navigate={navigate}
       />
     </div>
   );
